@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+body {
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.wrapper {
+    max-width: 100%;
+    background: #1A1A1A;
+}
+
+.conteiner {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.one-block-food {
+    height: 65.5rem;
+    background: url('../img/smouk-img.png');
+    background-size: cover;
+}
+
+/* ----------------- */
+.head {
+    padding-top: 2rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 10em;
+    padding-bottom: 2em;
+}
+
+.logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.text-logo {
+    padding-top: 0.3em;
+}
+
+.menu-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 6.25rem;
+}
+
+.menu-link ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 2.25rem;
+}
+
+.menu-link li a span{
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.menu-link li a span:hover {
+    color: #34C759;
+}
+
+.user {
+    padding-right: 3em;
+}
+
+/* ----------------- */
+
+.your-favarite-food {
+    max-width: 68rem;
+    margin: 5em auto;
+    text-align: center;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.title-head-food {
+    font-size: 4.5rem;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+
+.title-head-food span{
+    font-weight: 700;
+}
+
+.text-head-food {
+    width: 37rem;
+    margin: 1rem auto;
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: -0.2px;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+}
+
+/* ------------- */
+
+.button-order-now {
+    text-align: center;
+}
+
+.button-order-now a {
+    padding: 1.5rem 3.5rem;
+    background: #EECF22;
+    border-radius: 43px;
+}
+
+.button-order-now a span {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #1A1A1A;
+}
+
+.info-about-restoran {
+    max-width: 49rem;
+    margin: 0 auto;
+}
+
+.info-about-restoran ul {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 9rem;
+    text-align: center;
+    color: #fff;
+}
+
+.info-about-restoran ul li img {
+    margin-bottom: 0.75rem;
+}
+
+.text-info {
+    margin-top: 0.5rem;
+    color: #999999;
+}
+
+/* ----------- */
+
+.basics-food {
+    margin: -14rem 10rem 0rem;
+    background: #252525;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 3.75rem;
+    padding-top: 10rem;
+}
+
+.basics-head {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    position: relative;
+}
+
+.about-head-basics, .text-head-basics{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about-head-basics {
+    font-weight: 900;
+    font-size: 6.25rem;
+    z-index: 0;
+    letter-spacing: 0.2em;
+    color: #303030;
+}
+
+.text-head-basics {
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    color: #D9D9D9;
+}
+
+.text-basics {
+    max-width: 45rem;
+    margin: 0 auto;
+    margin-top: 5rem;
+    line-height: 30px;
+    text-align: center;
+    color: #A6A6A6;
+}
+
+.slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    margin-top: 5rem;
+}
+
+.slider ul{
+    max-width: 45.9rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 2rem;
+    overflow: hidden;
+}
+
+.arrow-left, .arrow-right {
+    width: 3rem;
+    height: 3rem;
+    background: #262626;
+    border: 2px solid #303030;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* _________________ */
+
+
+/* ___________________ */
+
+.dish-day {
+    margin-top: 6rem;
+}
+
+.dish-head {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    position: relative;
+    height: 6rem;
+}
+
+.about-head-dish, .text-head-dish {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about-head-dish {
+    font-weight: 900;
+    font-size: 6.25rem;
+    z-index: 0;
+    letter-spacing: 0.2em;
+    color: #303030;
+}
+
+.img-rich {
+    width: 6rem;
+    height: 12rem;
+}
+
+.text-head-dish {
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    color: #D9D9D9;
+}
+
+.line-dish {
+    width: 3.75rem;
+    height: 0.125rem;
+    background: #34C759;
+    margin: 0 auto;
+}
+
+.blocks-dish {
+    width: 69.375rem;
+    margin: 0 auto;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1.8rem;
+    row-gap: 1.8rem;
+}
+
+.dish-meal {
+    width: 21.875rem;
+    height: 30.8125rem;
+    background: #252525;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
+.dish-meal:hover ul li svg rect{
+    fill: #F9AD3D;
+}
+
+.dish-meal:hover .button-block-order {
+    background: #EECF22;
+}
+
+.dish-meal:hover .button-block-order a span {
+    color: #000;
+}
+
+.img-dish-meal {
+    margin-top: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.arrow-share {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-dish-meal, .status-star-meal {
+    margin-top: 1.8rem;
+    padding: 1.8rem;
+}
+
+.info-dish-meal {
+    padding-bottom: 0rem;
+}
+
+.info-head {
+    font-weight: 400;
+    font-size: 2rem;
+    color: #D9D9D9;
+}
+
+.mini-info-head {
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #A4A8B2;
+}
+
+.text-info {
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: -0.1625px;
+    color: #85878C;
+}
+
+.status-star-meal {
+    margin-top: 1.5rem;
+}
+
+.block-star {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 0.4rem;
+}
+
+.count-grade {
+    padding-left: 0.9rem;
+    color: #fff;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 0.2rem;
+}
+
+.button-block-order {
+    width: 6.25rem;
+    height: 1.875rem;
+    background: #262626;
+    border: 2px solid #303030;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-block-order a span {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* --------------------- */
+
+/* ------------------------ */
+
+.footer {
+    max-width: 100%;
+    margin-top: 7.5rem;
+    background: #252525;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-footer-restoran {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.info-footer-restoran {
+    max-width: 49rem;
+    margin: 0 auto;
+    padding: 2em;
+    padding-bottom: 5em;
+}
+
+.info-footer-restoran ul {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 9rem;
+    text-align: center;
+    color: #fff;
+}
+
+.info-footer-restoran ul li img {
+    margin-bottom: 0.75rem;
+}
+
+.text-info {
+    margin-top: 0.5rem;
+    color: #999999;
+}
