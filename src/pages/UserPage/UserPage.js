@@ -1,73 +1,67 @@
-import React from "react"
-import classes from './User.module.css';
-import avatar from '../img/avatar-admin.png';
+import React, {useEffect} from 'react'
+import classes from "./userPage.module.css"
+import {useDispatch, useSelector} from "react-redux"
+import {useParams} from "react-router-dom"
+import {getUserPayApi} from "../../axios/allApi"
+
+function UserPage() {
+
+    const dispatch = useDispatch()
+
+    const {id} = useParams()
+
+    const {pay} = useSelector(state => state.allReducer)
+
+    const {user} = useSelector(state => state.userReducer)
+
+    const checkPay = isObjectEmpty(pay)
+
+    function isObjectEmpty(obj) {
+        return Object.keys(obj).length === 0
+    }
 
 
-function User() {
+    useEffect(() => {
+        dispatch(getUserPayApi(id))
+    }, [dispatch, id])
+
+
     return (
-        <div className={classes.wrapper}>
-            <div className={classes.conteiner}>
-                <main className={classes.block_content}>
-                    <section className={classes.block_head_content}>
-                        <div className={classes.block_head_one}>
-                            <div className={classes.block_img_avatar}>
-                                <div className={classes.img_avatar}>
-                                    <img src={avatar} alt="avatar" />
-                                </div>
-                            </div>
-                            <div className={classes.name_avatar_email}>
-                                <h3>Mark Wilson</h3>
-                                <p>freduardo@simmmple.com</p>
-                            </div>
-                        </div>
-                    </section>
-                    <div className={classes.block_progect}>
-                        <div className={classes.head_progect}>
-                            <h3>Authors Table</h3>
-                        </div>
-                        <div className={classes.block_table}>
-                            <table className={classes.table}>
-                                <tr>
-                                    <th>Cigarettes</th>
-                                    <th>Things</th>
-                                    <th>STATUS</th>
-                                    <th>Date of purchase</th>
-                                    <th>Sum</th>
+        <div className={classes.container_content}>
+            <section className={classes.container_tarif}>
+
+                <div className={classes.head_tarif}>
+                    <h2>{user.login} ваши заказы</h2>
+                </div>
+                {
+                    !checkPay
+                        ?
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Имя</th>
+                                <th>Название блюда</th>
+                                <th>Оплата</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {pay.map(item => (
+                                <tr key={item.id}>
+                                    <td>{item.id}</td>
+                                    <td>{item.user.login}</td>
+                                    <td>{item.product.info_head}</td>
+                                    <td>{item.price}</td>
                                 </tr>
-                                <tr>
-                                    <td className={classes.block_avtor}>
-                                        <div className={classes.img_file}>
-                                            <div className={classes.circle}>
-                                            </div>
-                                        </div>
-                                        <div className={classes.text_avtor_file}>
-                                            <h3>Featured Meal</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.text_function}>
-                                            <h3><span className={classes.num_gr}>3</span></h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.status}>
-                                            <p className={classes.text_status}>success</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p>23/03/2023</p>
-                                    </td>
-                                    <td>
-                                        <a href="#"><span className={classes.edit}>15000</span></a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </main>
-            </div>
+                            ))}
+                            </tbody>
+                        </table>
+                        :
+                        <h2> Нету заказов</h2>
+                }
+            </section>
         </div>
     )
 }
 
-export default User
+export default UserPage

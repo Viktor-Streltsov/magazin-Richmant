@@ -1,128 +1,72 @@
-import React from 'react';
-import classes from './Admin.module.css';
-import admin from '../img/avatar-admin.png';
+import React, {useEffect} from 'react'
+import classes from "./adminPage.module.css"
+import {useDispatch, useSelector} from "react-redux"
+import {getUsers} from "../../axios/usersApi"
+import {getAllPayApi} from "../../axios/allApi"
+import AddProduct from "../../components/addProduct/AddProduct"
 
-
-function Admin() {
-    return (
-        <div className={classes.wrapper}>
-            <div className={classes.conteiner}>
-                <main className={classes.block_content}>
-                    <section className={classes.block_head_content}>
-                        <div className={classes.block_head_one}>
-                            <div className={classes.block_img_avatar}>
-                                <div className={classes.img_avatar}>
-                                    <img src={admin} alt="avatar" />
-                                </div>
-                            </div>
-                            <div className={classes.name_avatar_email}>
-                                <h3>Esthera Jackson</h3>
-                                <p>administrator</p>
-                            </div>
-                        </div>
-                    </section>
-                    <div className={classes.block_progect}>
-                        <div className={classes.head_progect}>
-                            <h3>Authors Table</h3>
-                        </div>
-                        <div className={classes.block_table}>
-                            <table className={classes.table}>
-                                <tr>
-                                    <th>Cigarettes</th>
-                                    <th>Sale & Balance</th>
-                                    <th>STATUS</th>
-                                    <th>Volume</th>
-                                    <th>Total amount</th>
-                                </tr>
-                                <tr>
-                                    <td className={classes.block_avtor}>
-                                        <div className={classes.img_file}>
-                                            <div className={classes.circle}>
-                                            </div>
-                                        </div>
-                                        <div className={classes.text_avtor_file}>
-                                            <h3>Featured Meal</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.text_function}>
-                                            <h3><span className={classes.num_quantiti}>34</span>/<span className={classes.num_sold}>14</span></h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.status}>
-                                            <p className={classes.text_status}>In stock</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p><span className={classes.num_gr}>2</span></p>
-                                    </td>
-                                    <td>
-                                        <a href="#"><span className={classes.edit}>1000</span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className={classes.block_avtor}>
-                                        <div className={classes.img_file}>
-                                            <div className={classes.circle}>
-                                            </div>
-                                        </div>
-                                        <div className={classes.text_avtor_file}>
-                                            <h3>Featured Meal</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.text_function}>
-                                            <h3>34/12</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.status}>
-                                            <p className={classes.text_status}>In stock</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p><span>7</span></p>
-                                    </td>
-                                    <td>
-                                        <a href="#"><span className={classes.edit}>1500</span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className={classes.block_avtor}>
-                                        <div className={classes.img_file}>
-                                            <div className={classes.circle}>
-                                            </div>
-                                        </div>
-                                        <div className={classes.text_avtor_file}>
-                                            <h3>Featured Meal</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.text_function}>
-                                            <h3>34/12</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={classes.status}>
-                                            <p className={classes.text_status}>In stock</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p><span>8</span></p>
-                                    </td>
-                                    <td>
-                                        <a href="#"><span className={classes.edit}>1500</span></a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div >
-    )
+function isObjectEmpty(obj) {
+    return Object.keys(obj).length === 0;
 }
 
 
-export default Admin
+function AdminPage() {
+    const dispatch = useDispatch()
+
+    const {pays} = useSelector(state => state.allReducer)
+
+    const checkPays = isObjectEmpty(pays)
+    console.log(checkPays)
+
+    useEffect(() => {
+        dispatch(getAllPayApi())
+        dispatch(getUsers())
+    }, [dispatch])
+
+
+    return (
+        <div className={classes.container_content}>
+            <AddProduct/>
+            <section className={classes.container_tarif}>
+                <div className={classes.head_tarif}>
+                    <h2>Все заказы</h2>
+                </div>
+                {
+                    !checkPays
+                        ?
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Имя</th>
+                                <th>Телефон</th>
+                                <th>Карта</th>
+                                <th>Название блюда</th>
+                                <th>Оплата</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {pays.map(item =>
+                                (
+                                    <tr key={item.id}>
+                                        <td>{item.id}</td>
+                                        <td>{item.user.login}</td>
+                                        <td>{item.phone}</td>
+                                        <td>{item.personal_account}</td>
+                                        <td>{item.product.info_head}</td>
+                                        <td>{item.price}</td>
+                                    </tr>
+                                ))
+                            }
+                            </tbody>
+                        </table>
+                        :
+                        <h2> Нету заказов</h2>
+                }
+            </section>
+        </div>
+    )
+}
+
+export default AdminPage

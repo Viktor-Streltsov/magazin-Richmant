@@ -33,7 +33,7 @@ a {
 
 .one_block_food {
     height: 65.5rem;
-    background: url('../img/smouk-img.png')no-repeat;
+    background: url('../../img/smouk-img.png')no-repeat;
     background-size: cover;
 }
 

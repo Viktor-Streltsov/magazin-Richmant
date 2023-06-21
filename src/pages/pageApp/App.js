@@ -1,8 +1,8 @@
 import React from "react"
 import classes from './App.module.css';
-import face from '../img/facebook.png';
-import apple from '../img/apple.png';
-import googl from '../img/google.png';
+import face from '../../img/facebook.png';
+import apple from '../../img/apple.png';
+import googl from '../../img/google.png';
 
 
 
